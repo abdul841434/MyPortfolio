@@ -59,7 +59,7 @@ $(document).ready(function () {
 document.addEventListener('visibilitychange',
     function () {
         if (document.visibilityState === "visible") {
-            document.title = "Portfolio | Jigar Sable";
+            document.title = "Portfolio | Abdul Ahad";
             $("#favicon").attr("href", "assets/images/favicon.png");
         }
         else {
@@ -108,9 +108,11 @@ function showProjects(projects) {
     let projectsContainer = document.querySelector("#work .box-container");
     let projectHTML = "";
     projects.slice(0, 10).filter(project => project.category != "android").forEach(project => {
+        let imgSrc = project.image || "./assets/images/projects/portfolio.PNG"; // use image from JSON or fallback
+        console.log("Loading project image:", imgSrc); // DEBUG
         projectHTML += `
         <div class="box tilt">
-      <img draggable="false" src="/assets/images/projects/${project.image}.png" alt="project" />
+      <img draggable="false" src="${imgSrc}" alt="project" />
       <div class="content">
         <div class="tag">
         <h3>${project.name}</h3>
